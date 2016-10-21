@@ -1,0 +1,17 @@
+function solve(inputArr, argString) {
+
+    let asc = function (a, b) {
+        return a-b;
+    };
+    let desc = function (a, b) {
+        return b-a;
+    };
+
+    let sortingStrategies = {
+        asc:asc,
+        desc:desc
+    };
+
+    return inputArr.sort(sortingStrategies[argString]);
+
+}
