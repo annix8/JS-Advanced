@@ -1,0 +1,46 @@
+function solve() {
+    let userInfo = arguments;
+    let name = userInfo[0];
+    let age = userInfo[1];
+    let weight = userInfo[2];
+    let height = userInfo[3];
+
+    let BMI =( weight / height / height)*10000;
+    let obeseStatus = false;
+    let status = "";
+
+    if(BMI<18.5){
+        status = "underweight";
+    }
+    else if(BMI>=18.5 && BMI <25){
+        status = "normal";
+    }
+    else if(BMI>=25 && BMI<30){
+        status = "overweight";
+    }
+    else{
+        status = "obese";
+        obeseStatus = true;
+    }
+
+
+    let obj = {
+        name: name,
+        personalInfo:{
+            age:age,
+            weight:weight,
+            height:height
+        },
+        BMI:Math.round(BMI),
+        status:status
+
+    };
+
+    if(obeseStatus){
+        obj.recommendation = 'admission required';
+        obeseStatus = false;
+    }
+    
+    return obj;
+
+}
