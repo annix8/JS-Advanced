@@ -1,0 +1,37 @@
+function createBook(selector, bookHeading, author, ISBN) {
+        let container = $(selector);
+        var id = $(".title").toArray().length + 1;
+        let bookDiv = $('<div>').attr("id","book"+ id);
+
+
+        let paragraphBookHeading = $('<p class="title">');
+        let paragraphBookAuthor  = $('<p class="author">');
+        let paragraphBookISBN = $('<p class="isbn">');
+        let selectBtn = $('<button>Select</button>').click(selectSingleBook);
+        let deselectBtn = $('<button>Deselect</button>').click(deselectSingleBook);
+
+        paragraphBookHeading.append(bookHeading);
+        bookDiv.append(paragraphBookHeading);
+
+        paragraphBookAuthor.append(author);
+        bookDiv.append(paragraphBookAuthor);
+
+        paragraphBookISBN.append(ISBN);
+        bookDiv.append(paragraphBookISBN);
+
+        bookDiv.append(selectBtn);
+        bookDiv.append(deselectBtn);
+
+        container.append(bookDiv);
+
+        function selectSingleBook() {
+            let bookDiv = $(this).parent();
+            bookDiv.css("border", "2px solid blue");
+        }
+        function deselectSingleBook() {
+            let bookDiv = $(this).parent();
+            bookDiv.css("border", "none");
+
+        }
+
+    }
