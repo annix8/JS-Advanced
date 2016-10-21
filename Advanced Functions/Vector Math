@@ -1,0 +1,19 @@
+  (function result() {
+        return {
+            add: function (vec1,vec2) {
+                let x1x2 = vec1[0] + vec2[0];
+                let y1y2 = vec1[1] + vec2[1];
+                let result = [x1x2,y1y2];
+                return result;
+            },
+            multiply: function (vector, number) {
+                let newX = vector[0] * number;
+                let newY = vector[1] * number;
+                return [newX,newY];
+
+            },
+            length: (vector) =>  Math.sqrt(vector[0]*vector[0] + vector[1]*vector[1]),
+            dot: (vec1, vec2)=>  vec1[0]*vec2[0] + vec1[1]*vec2[1],
+            cross: (vec1, vec2)=> vec1[0]* vec2[1] - vec1[1] * vec2[0]
+        }
+    })()
