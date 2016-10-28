@@ -1,0 +1,32 @@
+function solve(arr, sorter) {
+
+    class Ticket {
+        constructor(destinationName, price, status){
+            this.destination = destinationName;
+            this.price = price;
+            this.status = status;
+        }
+    }
+    let result = [];
+
+    for(let info of arr){
+        let [destination, price, status] = info.split('|');
+        price = Number(price);
+        let ticket = new Ticket(destination,price,status);
+        result.push(ticket)
+    }
+
+    return result.sort((a,b) => {
+        if(typeof(a[sorter]) == 'string'){
+            if(a[sorter] != b[sorter]){
+
+                return a[sorter].localeCompare(b[sorter]);
+            }
+
+        }
+        else{
+            return a[sorter] - b[sorter];
+        }
+
+    });
+}
