@@ -1,0 +1,87 @@
+describe("shared object test", function () {
+let myList;
+
+    beforeEach(function () {
+         myList = new SortedList();
+    });
+
+    it('sadas',function () {
+        expect(typeof(SortedList)).to.equal('function');
+
+        expect(SortedList.prototype.hasOwnProperty('add')).to.equal(true);
+        expect(SortedList.prototype.hasOwnProperty('remove')).to.equal(true);
+        expect(SortedList.prototype.hasOwnProperty('get')).to.equal(true);
+        expect(SortedList.prototype.hasOwnProperty('size')).to.equal(true)
+    });
+
+    it('sadas',function () {
+        expect(myList.size).to.equal(0);
+
+    });
+
+    it('sadas',function () {
+        myList.add(5);
+        expect(myList.size).to.equal(1);
+
+    });
+
+    it('sadas',function () {
+        myList.add(5);
+        expect(myList.get(0)).to.equal(5);
+
+    });
+
+    it('sadas',function () {
+        myList.add(4);
+        myList.add(3);
+        myList.add(8);
+        myList.add(1);
+        expect(myList.get(0)).to.equal(1);
+        expect(myList.get(1)).to.equal(3);
+        expect(myList.get(2)).to.equal(4);
+        expect(myList.get(3)).to.equal(8);
+        expect(myList.size).to.equal(4);
+
+    });
+
+    it('sadas',function () {
+        myList.add(4);
+        myList.add(3);
+        myList.add(8);
+        myList.add(1);
+        myList.remove(1)
+        expect(myList.get(0)).to.equal(1);
+        expect(myList.get(1)).to.equal(4);
+        expect(myList.get(2)).to.equal(8);
+        expect(myList.size).to.equal(3);
+
+    });
+
+    it('sadas',function () {
+        myList.add(4);
+        myList.add(3);
+        myList.add(8);
+        myList.add(1);
+
+        expect(() => myList.get(-1)).to.throw(Error);
+        expect(() => myList.remove(-1)).to.throw(Error);
+
+    });
+
+    it('sadas',function () {
+        myList.add(4);
+        myList.add(3);
+        myList.add(8);
+        myList.add(1);
+
+        expect(() => myList.get(4)).to.throw(Error);
+        expect(() => myList.remove(4)).to.throw(Error);
+
+    });
+
+    it('sadas',function () {
+        expect(() => myList.get(0)).to.throw(Error);
+        expect(() => myList.remove(0)).to.throw(Error);
+
+    });
+});
