@@ -1,0 +1,50 @@
+describe("shared object test", function () {
+
+
+    it('sadas',function () {
+        let str = 'Pesho';
+        expect(Console.writeLine(str)).to.equal('Pesho');
+    });
+
+   it('sadas',function () {
+        let obj = {name: 'Pesho', age: 20};
+        expect(Console.writeLine(obj)).to.equal(JSON.stringify(obj));
+    });
+
+    it('sadas',function () {
+
+        expect(() =>Console.writeLine(1,2,3)).to.throw(TypeError);
+    });
+
+    it('sadas',function () {
+
+        expect(() =>Console.writeLine('{0}{1}{2}',1,2,3,4,5,6)).to.throw(RangeError);
+    });
+
+    it('sadas',function () {
+
+        expect(() =>Console.writeLine('{0}{1}{2}{3}{4}',1,2,3)).to.throw(RangeError);
+    });
+
+    it('sadas',function () {
+
+        expect(() =>Console.writeLine('{1}{2}{3}{4}',1,2,3,4)).to.throw(RangeError);
+    });
+
+    it('sadas',function () {
+
+        expect(Console.writeLine("{0} {1} {2}", 5+3, 'world', 'dinner')).to.equal('8 world dinner');
+
+    });
+
+    it('sadas',function () {
+        let text = '{0}{1}{25}';
+        let resultMatch = text.match(Console.placeholder);
+        expect(resultMatch[0]).to.equal('{0}');
+        expect(resultMatch[1]).to.equal('{1}');
+        expect(resultMatch[2]).to.equal('{25}');
+
+    });
+
+});
+
