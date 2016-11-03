@@ -1,0 +1,108 @@
+function solve(){
+    class Melon{
+        constructor(weight, melonSort){
+            if(new.target === Melon){
+                throw new Error('Abstract class cannot be instantiated directly')
+            }
+            this.weight = weight;
+            this.melonSort = melonSort;
+            this.element ='';
+        }
+
+        toString(){
+            return `Element: ${this.element}`;
+        }
+    }
+
+    class Watermelon extends Melon{
+        constructor(weight, melonSort){
+            super(weight,melonSort);
+            this.element= 'Water';
+            this._elementIndex = this.weight * this.melonSort.length;
+        }
+
+        get elementIndex(){
+            return this._elementIndex;
+        }
+
+        toString(){
+            let baseStr = super.toString();
+            return `${baseStr}\nSort: ${this.melonSort}\nElement Index: ${this.elementIndex}`;
+        }
+    }
+
+    class Firemelon extends Melon{
+        constructor(weight, melonSort){
+            super(weight,melonSort);
+            this.element= 'Fire';
+            this._elementIndex = this.weight * this.melonSort.length;
+        }
+
+        get elementIndex(){
+            return this._elementIndex;
+        }
+
+        toString(){
+            let baseStr = super.toString();
+            return `${baseStr}\nSort: ${this.melonSort}\nElement Index: ${this.elementIndex}`;
+
+        }
+    }
+
+    class Earthmelon extends Melon{
+        constructor(weight, melonSort){
+            super(weight,melonSort);
+            this.element= 'Earth';
+            this._elementIndex = this.weight * this.melonSort.length;
+        }
+
+        get elementIndex(){
+            return this._elementIndex;
+        }
+
+        toString(){
+            let baseStr = super.toString();
+            return `${baseStr}\nSort: ${this.melonSort}\nElement Index: ${this.elementIndex}`;
+
+        }
+    }
+
+    class Airmelon extends Melon{
+        constructor(weight, melonSort){
+            super(weight,melonSort);
+            this.element= 'Air';
+            this._elementIndex = this.weight * this.melonSort.length;
+        }
+
+        get elementIndex(){
+            return this._elementIndex;
+        }
+
+        toString(){
+            let baseStr = super.toString();
+            return `${baseStr}\nSort: ${this.melonSort}\nElement Index: ${this.elementIndex}`;
+
+        }
+    }
+
+    class Melolemonmelon extends Watermelon{
+        constructor(weight, melonSort) {
+            super(weight, melonSort);
+            this.count =-1 ;
+
+        }
+
+        morph(){
+            let elements = ['Fire','Earth','Air','Water'];
+            this.count++;
+            if(this.count ==4){
+                this.count = 0;
+            }
+            this.element = elements[this.count];
+
+        }
+
+    }
+
+    return {Melon,Watermelon, Firemelon, Earthmelon, Airmelon, Melolemonmelon}
+}
