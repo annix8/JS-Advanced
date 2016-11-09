@@ -1,0 +1,56 @@
+function makeCandy(input) {
+    class Candy{
+        constructor(topping,filling,spice){
+            if(topping != "milk chocolate" && topping != "white chocolate" && topping != "dark chocolate"){
+                throw new TypeError;
+            }
+            const validFillings = ['hazelnut', 'caramel', 'strawberry', 'blueberry', 'yogurt', 'fudge'];
+            let fillingArr = filling.split(',');
+            if(fillingArr.length > 3){
+                throw new TypeError;
+            }
+           if(filling.length !=0){
+               for(let singleFilling of fillingArr){
+                   if(!validFillings.includes(singleFilling)){
+                       throw new TypeError;
+                   }
+                   if(singleFilling == ''){
+                       singleFilling = null;
+                   }
+               }
+           }
+           if(filling.length ==0){
+               filling = null;
+           }
+            if(typeof(spice) == 'string'){
+                if(spice =='poison' || spice == 'asbestos'){
+                    throw new TypeError;
+                }
+            }
+            if(spice ==''){
+                spice = null;
+            }
+
+            this.topping = topping;
+            this.filling = filling;
+            this.spice = spice;
+        }
+    }
+    let result = [];
+    for(let row of input){
+        if(row.split(':').length != 3){
+            continue;
+        }
+        let [topping, filling, spice] = row.split(':');
+        
+        
+        try{
+            result.push(new Candy(topping,filling,spice));
+        }
+        catch(ex){
+
+        }
+    }
+
+   return result;
+}
