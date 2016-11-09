@@ -1,0 +1,13 @@
+function* fibonacci(){
+    let current = 0;
+    let next = 1;
+    let fibArr = [1];
+    let counter = 0;
+    while(true) {
+        let result = current + next;
+        current = next;
+        next = result;
+        fibArr.push(result);
+        yield fibArr[counter++];
+    }
+}
