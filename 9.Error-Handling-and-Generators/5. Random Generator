@@ -1,0 +1,8 @@
+function* random(number){
+    let currentState = number;
+
+    while(true){
+        currentState = (currentState * currentState) %(4871 * 7919);
+        yield currentState % 100;
+    }
+}
