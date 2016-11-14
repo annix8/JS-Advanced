@@ -1,0 +1,18 @@
+function attachEvents() {
+        let btnDelete = $('#btnDelete');
+        let btnAdd = $('#btnAdd');
+
+        btnAdd.on('click',function () {
+            let townValue = $('#newItem').val();
+            if(townValue != '')
+            $('#towns').append(`<option>${townValue}</option>`);
+            $('#newItem').val('');
+        });
+
+        btnDelete.on('click',function () {
+            $( "#towns option:selected" ).each(function() {
+                this.remove();
+            })
+
+        })
+    }
