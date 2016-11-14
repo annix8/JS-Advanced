@@ -1,0 +1,25 @@
+function cardDeckBuilder(selector) {
+        return{
+            addCard: function (face, suit) {
+                let suits = {
+                    C: "\u2663",    
+                    D: "\u2666", 
+                    H: "\u2665",   
+                    S: "\u2660" 
+                    };
+                let cards = [];
+                let cardDiv = $(`<div class="card">${face} ${suits[suit]}</div>`).click(reverseCards);
+                cards.push(cardDiv);
+                for(let card of cards){
+                    $(selector).append(card);
+                }
+
+                function reverseCards() {
+                    return $(selector).each(function(){
+                        $(selector).children().each(function(){ $(selector).prepend(this) });
+                    });
+
+                }
+            }
+        }
+    }
