@@ -1,0 +1,131 @@
+describe("sorted list test", function () {
+    let resultList;
+    beforeEach(function () {
+        resultList = createList();
+    });
+
+    it('1',function () {
+        expect(resultList.toString()).to.equal('');
+        resultList.add(1);
+        expect(resultList.toString()).to.equal('1');
+    });
+
+    it('1',function () {
+        resultList.add(1);
+        resultList.add(2);
+        resultList.shiftRight();
+        expect(resultList.toString()).to.equal('2, 1');
+    });
+    it('1',function () {
+        resultList.add(1);
+        resultList.add(2);
+        resultList.shiftLeft();
+        expect(resultList.toString()).to.equal('2, 1');
+    });
+    it('2',function () {
+        resultList.add(1);
+        resultList.add('pesho');
+        expect(resultList.toString()).to.equal('1, pesho')
+    });
+    it('3',function () {
+        resultList.add(1);
+        resultList.add('pesho');
+        resultList.add(3);
+        expect(resultList.toString()).to.equal('1, pesho, 3');
+        resultList.shiftLeft();
+        expect(resultList.toString()).to.equal('pesho, 3, 1');
+    });
+    it('4',function () {
+        resultList.add(1);
+        resultList.shiftLeft();
+        expect(resultList.toString()).to.equal('1');
+    });
+    it('5',function () {
+        resultList.add(1);
+        resultList.add('pesho');
+        resultList.add(3);
+        expect(resultList.toString()).to.equal('1, pesho, 3');
+        resultList.shiftRight();
+        expect(resultList.toString()).to.equal('3, 1, pesho');
+    });
+    it('6',function () {
+        resultList.add(1);
+        resultList.shiftRight();
+        expect(resultList.toString()).to.equal('1');
+    });
+    it('7',function () {
+        resultList.add(1);
+        resultList.add(2);
+        resultList.add(3);
+        expect(resultList.swap(0,1.0)).to.equal(true);
+        expect(resultList.toString()).to.equal('2, 1, 3')
+    });
+    it('7',function () {
+        resultList.add(1);
+        resultList.add(2);
+        resultList.add(3);
+        expect(resultList.swap(1.0,0)).to.equal(true);
+        expect(resultList.toString()).to.equal('2, 1, 3')
+    });
+    it('8',function () {
+        resultList.add(1);
+        resultList.add(2);
+        resultList.add(3);
+        expect(resultList.swap(3,1)).to.equal(false);
+        expect(resultList.swap(-3,3)).to.equal(false);
+        expect(resultList.toString()).to.equal('1, 2, 3')
+    });
+
+    it('9',function () {
+        resultList.add(1);
+        resultList.add(2);
+        resultList.add(3);
+        expect(resultList.swap(1,3)).to.equal(false);
+        expect(resultList.toString()).to.equal('1, 2, 3')
+    });
+    it('10',function () {
+        resultList.add(1);
+        resultList.add(2);
+        resultList.add(3);
+        expect(resultList.swap(1,1)).to.equal(false);
+        expect(resultList.toString()).to.equal('1, 2, 3')
+    });
+    it('10',function () {
+        resultList.add(1);
+        expect(resultList.swap(0,1)).to.equal(false);
+        expect(resultList.toString()).to.equal('1')
+    });
+    it('12',function () {
+        resultList.add(1);
+        resultList.add(2);
+        resultList.add('pesho');
+        expect(resultList.toString()).to.equal('1, 2, pesho');
+        expect(resultList.swap(0,2)).to.equal(true);
+        expect(resultList.toString()).to.equal('pesho, 2, 1')
+    });
+    it('13',function () {
+        resultList.add(1);
+        resultList.add(2);
+        resultList.add(3);
+        expect(resultList.toString()).to.equal('1, 2, 3');
+        expect(resultList.swap(-1,2)).to.equal(false);
+        expect(resultList.toString()).to.equal('1, 2, 3');
+    });
+    it('13',function () {
+        resultList.add(1);
+        resultList.add(1);
+
+        expect(resultList.toString()).to.equal('1, 1');
+        expect(resultList.swap(0,1)).to.equal(true);
+        expect(resultList.toString()).to.equal('1, 1');
+    });
+   it('15',function () {
+        resultList.add(1);
+        resultList.add(2);
+        resultList.add(3);
+        expect(resultList.toString()).to.equal('1, 2, 3');
+        expect(resultList.swap('pesho',0)).to.equal(false);
+        expect(resultList.swap(0,'pesho')).to.equal(false);
+        expect(resultList.toString()).to.equal('1, 2, 3');
+    });
+});
